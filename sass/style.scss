@@ -1,38 +1,76 @@
+$mobile-size: 415px;
+$tablet-size: 768px;
+$pc-size: 980px;
+
+$headerBg-color: #000000;
+$choice-color: #ffffff;
+$padding-value: 20px;
+
+
+@mixin tablet {
+    @media(max-width:$pc-size) and (min-width:$mobile-size) {
+       @content;
+    }
+  }
+  
+@mixin pc {
+    @media(min-width:$pc-size) {
+       @content;
+    }
+  }
+  
+@mixin flex-display {
+    display: flex;
+    justify-content: center;
+}
+
 * {
     box-sizing: border-box;
 }
 body {
     font-family: 'Open Sans', sans-serif;
-    width: 480px;
+    max-width: 100%;
+
+    @include tablet {
+        width: $tablet-size;
+    }
+
+    @include pc {
+        min-width: $pc-size;
+    }
 }
 
 /* Header */
 .top-header {
-    display: flex;
-    justify-content: center;
-    background-color: black;
-}
-.logo {
-    height: 50px;
-    padding-top: 20px;
-    padding-left: 20px;
-}
+    @include flex-display;
+    background: $headerBg-color;
 
-.menu {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-.choice {
-    color: white;
-    padding-bottom: 5px;
-}
+    .logo {
+        height: 50px;
+        padding-top: $padding-value;
+        padding-left: $padding-value;
 
-.category {
-    background-color: white; 
+        @include pc {
+            height: 100px;
+        }
+    }
+    
+    .menu {
+        @include flex-display;
+
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: $padding-value;
+    }
+    .choice {
+        color: $choice-color;
+        padding-bottom: 5px;
+    }
+    
+    .category {
+        background: $choice-color; 
+    }
 }
 
 /* main news section */
@@ -41,124 +79,23 @@ body {
     display: grid;
     grid-template-columns: auto;
     padding: 10px;
-   
-}
-
-.grid-item {
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-}
-
-/* for tablet version */
-@media only screen and (min-width: 760px) and (max-width: 1024px){
-
-body {
-        font-family: 'Open Sans', sans-serif;
-        width: 100%;
-     
-    }
-
-/* Header */
-
-.top-header {
-    display: flex;
-    justify-content: center;
-    background-color: black;
-}
-.logo {
-    height: 50px;
-    padding-top: 20px;
-    padding-left: 20px;
-}
-
-.menu {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-.choice {
-    color: white;
-    padding-bottom: 5px;
-}
-
-.category {
-    background-color: white; 
-}
-
-/* main news section */
-
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto;
-    padding: 10px;
-   
-}
-
-.grid-item {
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-}
-
-}
- /* for laptop version */
-@media only screen and (max-width: 1440px) {
-
-    body {
-        font-family: 'Open Sans', sans-serif;
-        width: 100%;
-     
-    }
     
-    /* Header */
-    
-    .top-header {
-        display: flex;
-        justify-content: center;
-        background-color: black;
+    @include tablet {
+        grid-template-columns: auto auto auto;
     }
-    .logo {
-        height: 50px;
-        padding-top: 20px;
-        padding-left: 20px;
-    }
-    
-    .menu {
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-    .choice {
-        color: white;
-        padding-bottom: 5px;
-    }
-    
-    .category {
-        background-color: white; 
-    }
-    
-    /* main news section */
-    
-    .grid-container {
-        display: grid;
+
+    @include pc {
         grid-template-columns: auto auto auto auto;
-        padding: 10px;
-       
     }
     
     .grid-item {
         border: 1px solid rgba(0, 0, 0, 0.8);
-        padding: 20px;
+        padding: $padding-value;
         font-size: 30px;
         text-align: center;
+
     }
 }
+
+
+
