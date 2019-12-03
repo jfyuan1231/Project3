@@ -1,3 +1,5 @@
+$base-font: "Open Sans", Arial, Helvetica, sans-serif;
+
 $mobile-size: 415px;
 $tablet-size: 768px;
 $pc-size: 980px;
@@ -6,96 +8,104 @@ $headerBg-color: #000000;
 $choice-color: #ffffff;
 $padding-value: 20px;
 
-
 @mixin tablet {
-    @media(max-width:$pc-size) and (min-width:$mobile-size) {
-       @content;
-    }
-  }
-  
+	@media (max-width: $pc-size) and (min-width: $mobile-size) {
+		@content;
+	}
+}
+
 @mixin pc {
-    @media(min-width:$pc-size) {
-       @content;
-    }
-  }
-  
+	@media (min-width: $pc-size) {
+		@content;
+	}
+}
+
 @mixin flex-display {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
+
 body {
-    font-family: 'Open Sans', sans-serif;
-    max-width: 100%;
+	font-family: $base-font;
+	min-height: 100vh;
 
-    @include tablet {
-        width: $tablet-size;
-    }
+	@include tablet {
+		width: $tablet-size;
+	}
 
-    @include pc {
-        min-width: $pc-size;
-    }
+	@include pc {
+		min-width: $pc-size;
+	}
 }
 
 /* Header */
 .top-header {
-    @include flex-display;
-    background: $headerBg-color;
+	@include flex-display;
+	background: $headerBg-color;
 
-    .logo {
-        height: 50px;
-        padding-top: $padding-value;
-        padding-left: $padding-value;
+	.logo {
+		height: 50px;
+		padding-top: $padding-value;
+		padding-left: $padding-value;
 
-        @include pc {
-            height: 100px;
-        }
-    }
-    
-    .menu {
-        @include flex-display;
+		@include pc {
+			height: 100px;
+		}
+	}
 
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: $padding-value;
-    }
-    .choice {
-        color: $choice-color;
-        padding-bottom: 5px;
-    }
-    
-    .category {
-        background: $choice-color; 
-    }
+	.menu {
+		@include flex-display;
+
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		padding: $padding-value;
+	}
+	.choice {
+		color: $choice-color;
+		padding-bottom: 5px;
+	}
+
+	.category {
+		background: $choice-color;
+	}
 }
 
 /* main news section */
 
-.grid-container {
-    display: grid;
-    grid-template-columns: auto;
-    padding: 10px;
-    
-    @include tablet {
-        grid-template-columns: auto auto auto;
-    }
+.stories {
+	display: grid;
+	grid-template-columns: auto;
+	padding: 10px;
 
-    @include pc {
-        grid-template-columns: auto auto auto auto;
-    }
-    
-    .grid-item {
-        border: 1px solid rgba(0, 0, 0, 0.8);
-        padding: $padding-value;
-        font-size: 30px;
-        text-align: center;
+	@include tablet {
+		grid-template-columns: auto auto auto;
+	}
 
-    }
+	@include pc {
+		grid-template-columns: auto auto auto auto;
+	}
+
+	.grid-item {
+		border: 1px solid rgba(0, 0, 0, 0.8);
+		padding: $padding-value;
+		font-size: 30px;
+		text-align: center;
+	}
 }
 
+// footer section
 
-
+.footer {
+	@include flex-display;
+	align-items: center;
+	text-align: center;
+	background: $headerBg-color;
+	color: $choice-color;
+	font-size: 0.8rem;
+	height: 50px;
+}
