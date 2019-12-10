@@ -1,12 +1,4 @@
-$base-font: "Open Sans", Arial, Helvetica, sans-serif;
-
-$mobile-size: 415px;
-$tablet-size: 768px;
-$pc-size: 980px;
-
-$headerBg-color: #000000;
-$choice-color: #ffffff;
-$padding-value: 20px;
+@import "variables";
 
 @mixin tablet {
 	@media (max-width: $pc-size) and (min-width: $mobile-size) {
@@ -29,7 +21,13 @@ $padding-value: 20px;
 	box-sizing: border-box;
 }
 
+html {
+	font-size: 62.5%;
+}
+
 body {
+	font-size: 16px;
+	font-size: 1.6rem;
 	font-family: $base-font;
 	min-height: 100vh;
 
@@ -48,12 +46,12 @@ body {
 	background: $headerBg-color;
 
 	.logo {
-		height: 50px;
+		height: 5rem;
 		padding-top: $padding-value;
 		padding-left: $padding-value;
 
 		@include pc {
-			height: 100px;
+			height: 10rem;
 		}
 	}
 
@@ -67,7 +65,10 @@ body {
 	}
 	.choice {
 		color: $choice-color;
+		padding: 5px;
+		padding: 0.5rem;
 		padding-bottom: 5px;
+		padding-bottom: 0.5rem;
 	}
 
 	.category {
@@ -76,11 +77,21 @@ body {
 }
 
 /* main news section */
+.newsLoader {
+	@include flex-display;
+	align-items: center;
+	.ajax-loader {
+		text-align: center;
+		margin: 10px auto;
+		margin: 1rem auto;
+		width: 30px;
+		width: 3rem;
+	}
+}
 
 .stories {
 	display: grid;
 	grid-template-columns: auto;
-	padding: 10px;
 
 	@include tablet {
 		grid-template-columns: auto auto auto;
@@ -90,12 +101,32 @@ body {
 		grid-template-columns: auto auto auto auto;
 	}
 
-	.grid-item {
-		border: 1px solid rgba(0, 0, 0, 0.8);
-		padding: $padding-value;
-		font-size: 30px;
-		text-align: center;
+	.search-result {
+		background-size: cover;
+		background-repeat: no-repeat;
+		position: relative;
+		height: 50vh;
 	}
+
+	figcaption {
+		color: $figcap-color;
+		bottom: 0;
+		text-align: justify;
+		position: absolute;
+		font-size: 15px;
+		font-size: 1.5rem;
+	}
+
+	figcaption:hover {
+		color: $choice-color;
+		background: $headerBg-color;
+	}
+
+	// .search-btn {
+	// 	font-weight: bold;
+	// 	border: 1px solid black;
+	// 	outline: none;
+	// }
 }
 
 // footer section
@@ -106,6 +137,11 @@ body {
 	text-align: center;
 	background: $headerBg-color;
 	color: $choice-color;
+	font-size: 8px;
 	font-size: 0.8rem;
 	height: 50px;
+	height: 5rem;
+	.read-more:before {
+		content: "\00A9";
+	}
 }
