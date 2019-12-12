@@ -44,9 +44,7 @@ body {
 /* Header */
 .top-header {
 	@include flex-display(row);
-
 	@include pc {
-		// align-items: left;
 		justify-content: flex-start;
 	}
 	background: $headerBg-color;
@@ -124,14 +122,11 @@ body {
 		position: absolute;
 		@include pc {
 			transition: font-size 700ms, background-color 1s;
-		}
-	}
-
-	figcaption:hover {
-		@include pc {
-			font-size: 20px;
-			font-size: 2rem;
-			background-color: $headerBg-color;
+			&:hover {
+				font-size: 20px;
+				font-size: 2rem;
+				background-color: $headerBg-color;
+			}
 		}
 	}
 }

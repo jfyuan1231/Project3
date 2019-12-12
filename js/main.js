@@ -43,6 +43,14 @@ $(function() {
 			$(this).css('height', '2rem');
 		});
 
+		// option.hover(function(event) {
+		// 	event.preventDefault();
+		// 	this.current.target.css({
+		// 		'background-color': 'white',
+		// 		'font-size': '150%'
+		// 	});
+		// });
+
 		$.ajax({
 			method: 'GET',
 			url: url,
