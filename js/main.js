@@ -51,5 +51,6 @@ $(function() {
 			error: noData,
 			complete: doneData
 		});
+		loader.hide();
 	});
 });
