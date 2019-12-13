@@ -2,6 +2,8 @@ $(function() {
 	const category = $('.category');
 	const loader = $('.newsLoader');
 
+	category.niceSelect();
+
 	function getData(data) {
 		if (data.results === ' ') {
 			$(`<li>${'There is no results'}</li>`).appendTo('.stories');
@@ -36,20 +38,12 @@ $(function() {
 		const name = $('.category').val();
 		const url = `https://api.nytimes.com/svc/topstories/v2/${name}.json?api-key=1CcWo6WoELzT0POH5FOthCwu2I71FMOW`;
 
-		div.animate({ height: '5rem' }, 1000, function() {
+		div.animate({ height: '8rem' }, 1000, function() {
+			$(this).css('height', '5rem');
+		});
+		logo.animate({ height: '6rem' }, 1000, function() {
 			$(this).css('height', '3.5rem');
 		});
-		logo.animate({ height: '4.5rem' }, 1000, function() {
-			$(this).css('height', '2rem');
-		});
-
-		// option.hover(function(event) {
-		// 	event.preventDefault();
-		// 	this.current.target.css({
-		// 		'background-color': 'white',
-		// 		'font-size': '150%'
-		// 	});
-		// });
 
 		$.ajax({
 			method: 'GET',

@@ -1,4 +1,4 @@
-// @import '../CSS/reset.css';
+@import 'reset';
 @import 'variables';
 
 @mixin tablet {
@@ -13,7 +13,7 @@
 	}
 }
 
-@mixin flex-display($direction) {
+@mixin flex-display {
 	display: flex;
 	justify-content: center;
 }
@@ -43,44 +43,52 @@ body {
 
 /* Header */
 .top-header {
-	@include flex-display(row);
+	@include flex-display;
 	@include pc {
 		justify-content: flex-start;
 	}
+	flex-direction: row;
 	background: $headerBg-color;
 	.logo {
-		height: 5rem;
-		margin: 1rem auto;
+		height: 45px;
+		height: 4.5rem;
+		margin: 5px auto;
+		margin: 0.5rem auto;
 		@include pc {
-			height: 10rem;
+			height: 60px;
+			height: 6rem;
 		}
 	}
 
 	.menu {
-		@include flex-display(column);
+		@include flex-display;
 		@include pc {
+			flex-direction: row;
 			justify-content: flex-start;
+			height: 80px;
+			height: 8rem;
 		}
+		flex-direction: column;
 		align-items: center;
 		text-align: center;
-		padding: $padding-value;
+		padding-bottom: $ft-size;
+		height: 60px;
+		height: 6rem;
+		.category {
+			height: 28px;
+			height: 2.8rem;
+		}
 	}
-	.choice {
+	.choice-info {
 		color: $choice-color;
 		padding: 5px;
 		padding: 0.5rem;
-		padding-bottom: 5px;
-		padding-bottom: 0.5rem;
-	}
-
-	.category {
-		background: $choice-color;
 	}
 }
 
 /* main news section */
 .newsLoader {
-	@include flex-display(row);
+	@include flex-display;
 	align-items: center;
 	.ajax-loader {
 		text-align: center;
@@ -134,7 +142,10 @@ body {
 // footer section
 
 .footer {
-	@include flex-display(row);
+	@include flex-display;
+	@include pc {
+		font-size: $ft-size;
+	}
 	align-items: center;
 	text-align: center;
 	background: $headerBg-color;
