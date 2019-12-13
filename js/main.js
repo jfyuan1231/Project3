@@ -9,14 +9,17 @@ $(function() {
 			$(`<li>${'There is no results'}</li>`).appendTo('.stories');
 		} else {
 			$('.stories').empty();
+
 			for (let i = 0; i < 12; i++) {
 				const abstract = data.results[i].abstract;
 				const shortUrl = data.results[i].short_url;
-				const image = data.results[i].multimedia[4];
+				const image = data.results[i].multimedia;
 
-				$(
-					`<li class="search-result" style="background-image: url(${image.url})"><a href="${shortUrl}"><figcaption>"${abstract}"</figcaption></li>`
-				).appendTo('.stories');
+				if (image.length > 3) {
+					$(
+						`<li class="search-result" style="background-image: url(${image[4].url})"><a href="${shortUrl}"><figcaption>"${abstract}"</figcaption></li>`
+					).appendTo('.stories');
+				}
 			}
 		}
 	}
