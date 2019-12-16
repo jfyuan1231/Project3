@@ -116,25 +116,28 @@ body {
 		background-repeat: no-repeat;
 		position: relative;
 		height: 50vh;
+		background-position: center;
 	}
-	figcaption {
-		font-size: 15px;
-		font-size: 1.5rem;
-		background: none;
-		color: $choice-color;
-		font-weight: bold;
-		padding: 5px;
-		padding: 0.5rem;
-		bottom: 0;
-		text-align: justify;
-		position: absolute;
-		@include pc {
-			transition: font-size 700ms, background-color 1s;
-			&:hover {
-				font-size: 20px;
-				font-size: 2rem;
-				background-color: $headerBg-color;
-			}
+}
+
+figcaption {
+	font-size: 15px;
+	font-size: 1.5rem;
+	background: none;
+	color: $choice-color;
+	font-weight: bold;
+	padding: 5px;
+	padding: 0.5rem;
+	bottom: 0;
+	text-align: left;
+	position: absolute;
+	word-wrap: break-word;
+	@include pc {
+		opacity: 0;
+		transition: opacity 700ms ease-in;
+		&:hover {
+			background-color: $headerBg-color;
+			opacity: 1;
 		}
 	}
 }

@@ -3,6 +3,9 @@ $(function() {
 	const loader = $('.newsLoader');
 
 	category.niceSelect();
+	loader.hide();
+
+	
 
 	function getData(data) {
 		if (data.results === ' ') {
@@ -36,6 +39,7 @@ $(function() {
 
 	category.change(function(event) {
 		event.preventDefault();
+		loader.show();
 		const div = $('.top-header');
 		const logo = $('.logo');
 		const name = $('.category').val();
@@ -56,6 +60,5 @@ $(function() {
 			error: noData,
 			complete: doneData
 		});
-		loader.hide();
 	});
 });
