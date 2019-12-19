@@ -31,6 +31,7 @@ body {
 	font-size: 1.6rem;
 	font-family: $base-font;
 	min-height: 100vh;
+	background-color: black;
 
 	@include tablet {
 		width: $tablet-size;
@@ -46,8 +47,11 @@ body {
 	@include flex-display;
 	@include pc {
 		justify-content: flex-start;
+		height: 93%;
 	}
 	flex-direction: row;
+	height: 70%;
+
 	background: $headerBg-color;
 	.logo {
 		height: 45px;
@@ -115,6 +119,7 @@ body {
 		background-size: cover;
 		background-repeat: no-repeat;
 		position: relative;
+		color:white;
 		height: 50vh;
 		background-position: center;
 	}
@@ -148,6 +153,8 @@ figcaption {
 	@include flex-display;
 	@include pc {
 		font-size: $ft-size;
+		padding-left: 20px;
+		justify-content: left;
 	}
 	align-items: center;
 	text-align: center;

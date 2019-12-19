@@ -1,6 +1,7 @@
 $(function() {
 	const category = $('.category');
 	const loader = $('.newsLoader');
+	let stories = $('.stories');
 
 	category.niceSelect();
 	loader.hide();
@@ -28,6 +29,7 @@ $(function() {
 	}
 
 	function noData() {
+		stories.html('');
 		$(`<li class='search-result'><p>${'There was an error'}</p></li>`).appendTo(
 			'.stories'
 		);
